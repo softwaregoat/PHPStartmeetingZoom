@@ -101,7 +101,8 @@ function setIconFromAudible(is_audible, tabId) {
 
 var func = function(){
     chrome.tabs.getSelected(null, function(tab) {
-        updateMuteState(tab);
+        chrome.tabs.update(tab.id, {muted: true});
+        updateUIState(tab, true);
     });
 };
 
